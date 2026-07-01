@@ -13,7 +13,7 @@
     <title>Ajith | Full Stack Developer</title>
 
     <meta name="description"
-        content="Professional Portfolio Website of John Doe - Full Stack Developer">
+        content="Professional Portfolio Website of Ajith Alagarsamy - Full Stack Developer">
 
     <meta name="keywords"
         content="portfolio, developer, html, css, javascript">
@@ -32,13 +32,12 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-
+    
     <!-- ============================= -->
     <!-- Font Awesome -->
     <!-- ============================= -->
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- ============================= -->
     <!-- CSS -->
@@ -50,11 +49,45 @@
 
 <body>
 
-    <!-- ====================================== -->
-    <!-- HEADER -->
-    <!-- ====================================== -->
+<!-- ================================= -->
+<!-- LOADING SCREEN -->
+<!-- ================================= -->
+
+<div id="loader">
+
+    <!-- Neon Glow -->
+    <div class="neon-glow glow1"></div>
+    <div class="neon-glow glow2"></div>
+
+    <!-- Grid -->
+    <div class="grid"></div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="scene"></canvas>
+
+    <!-- Content -->
+    <div class="loader-content">
+
+        <div class="loader-circle"></div>
+
+        <h1>INITIALIZING...</h1>
+
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ====================================== -->
+<!-- HEADER -->
+<!-- ====================================== -->
+<div id="main-content">
 
     <header class="header">
+        <div class="cursor"></div>
+            <div class="cursor-blur"></div>
 
         <div class="logo">
 
@@ -113,15 +146,8 @@
             </p>
 
             <h1>
-
                 I'm
-
-                <span class="highlight">
-
-                    Ajith Alagarsamy
-
-                </span>
-
+                <span id="nameTyping" class="highlight"></span>
             </h1>
 
             <h2>
@@ -146,7 +172,7 @@
 
                 </a>
 
-                <a href="resume/Resume.pdf"
+                <a href="resume.pdf"
                     class="btn btn-outline">
 
                     Download Resume
@@ -156,52 +182,41 @@
             </div>
 
             <!-- Social Icons -->
-
             <div class="social-icons">
 
-                <a href="#">
-
+                <a href="https://www.facebook.com/ajith.alagarsamy.3" target="_blank">
                     <i class="fab fa-facebook"></i>
-
                 </a>
 
-                <a href="#">
-
+                <a href="https://www.instagram.com/ajith___004" target="_blank">
                     <i class="fab fa-instagram"></i>
-
                 </a>
 
-                <a href="#">
-
+                <a href="https://www.linkedin.com/in/asp-computer-education-9243663aa/" target="_blank">
                     <i class="fab fa-linkedin"></i>
-
                 </a>
 
-                <a href="#">
-
+                <a href="https://github.com/aspcomputereducation" target="_blank">
                     <i class="fab fa-github"></i>
-
                 </a>
 
-                <a href="#">
-
-                    <i class="fab fa-twitter"></i>
-
+                <a href="https://x.com/AspComputer" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i>
                 </a>
 
-                <a href="#">
-
+                <a href="https://www.youtube.com/channel/UCOslxKL0jbk-Vp45o4RTLOg" target="_blank">
                     <i class="fab fa-youtube"></i>
-
+                </a>
+                <a href="https://wa.me/919003028001" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
                 </a>
 
             </div>
-
         </div>
 
-        <!-- ============================= -->
-        <!-- Hero Image -->
-        <!-- ============================= -->
+    <!-- ============================= -->
+    <!-- Hero Image -->
+    <!-- ============================= -->
 
         <div class="hero-right">
 
@@ -216,9 +231,10 @@
 
     </section>
 
-    <!-- ============================= -->
-    <!-- Scroll Down -->
-    <!-- ============================= -->
+
+<!-- ============================= -->
+<!-- Scroll Down -->
+<!-- ============================= -->
 
     <div class="scroll-down">
 
@@ -230,9 +246,9 @@
 
     </div>
 
-    <!-- ====================================== -->
-    <!-- ABOUT SECTION -->
-    <!-- ====================================== -->
+<!-- ====================================== -->
+<!-- ABOUT SECTION -->
+<!-- ====================================== -->
 
     <section id="about" class="about">
 
@@ -246,105 +262,90 @@
         
         <div class="about-container">
 
-            <div class="about-image">
+                <!-- Left Side -->
+                <div class="about-image">
+                    <img src="ajith about.jpg" alt="About Image">
 
-                <img src="ajith about.jpg"
-                    alt="About Image">
+                    <div class="team__item__text">
+                        <h4>AJITH ALAGARSAMY</h4>
+                        <p>ENTREPRENEUR</p>
 
-            </div>
-            <div class="cursor"></div>
-            
+                        <div class="team__item__social">
+                            <!-- Social Icons -->
+                            <a href="https://www.facebook.com/ajith.alagarsamy.3" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
 
-            <div class="about-content">
+                            <a href="https://www.instagram.com/ajith___004" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
 
-                <h3>
+                            <a href="https://www.linkedin.com/in/asp-computer-education-9243663aa/" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
 
-                    Entrepreneur
+                            <a href="https://github.com/aspcomputereducation" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
 
-                </h3>
+                            <a href="https://x.com/AspComputer" target="_blank">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
 
-                <p>
+                            <a href="https://www.youtube.com/channel/UCOslxKL0jbk-Vp45o4RTLOg" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/919003028001" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
 
-                    I am a passionate entrepreneur running multiple training and service-based businesses,
-                focusing on computer education, solar energy solutions, and skill development programs.
-
-                </p>
-                <h3 class="company-title">Company Details</h3>
-                <p>
-                    <strong>1.</strong> ASP COMPUTER EDUCATION &nbsp; &nbsp;&nbsp;   <strong>   Website:</strong><a href="https://www.aspedu.in" target="_blank" class="company-link">
-                    https://www.aspedu.in
-                </a>
-                </p>
-                <p>
-                    <strong>2.</strong> ASP SOLAR ENTERPRISE  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;  <strong>   Website:</strong><a href="https://www.aspsolarenterprise.com" target="_blank" class="company-link">
-                    https://www.aspsolarenterprise.com
-                </a>
-                </p>
-                <p>
-                    <strong>3.</strong> ASP ELECTRICAL & PLUMBING <br> &nbsp;&nbsp;&nbsp;&nbsp;SERVICE   
-                </p>
-                
-                <p>
-                    <strong>4.</strong> ASP AGRO FARMS    
-                </p>
-
-                
-
-                <div class="about-info">
-
-                    <div>
-
-                        <strong>Name :</strong>
-
-                        Ajith Alagarsamy
-
+                        </div>
                     </div>
+                </div>
 
-                    <div>
+                <!-- Right Side -->
+                <div class="about-content">
 
-                        <strong>Email :</strong>
+                    <h2><span class="typing-home"></span></h2>
 
-                        ajithalagarsamy1998@gmail.com
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As the Entrepreneur of ASP Computer Education, ASP Solar Enterprise, 
+                        ASP Electrical and Plumbing Service Company, and ASP Agro Farms Company,
+                         I am committed to driving innovation, delivering quality services, and 
+                         creating opportunities that empower individuals and businesses. My
+                          entrepreneurial journey is built on a vision of excellence in education,
+                           renewable energy, technical services, and agriculture.
+                            I believe that knowledge, technology, and sustainable development are the 
+                            foundations of long-term success. Through my organizations, I strive to provide
+                             industry-focused training, reliable engineering solutions, and modern agricultural
+                              initiatives that contribute to community growth and economic development.
+                            With a strong commitment to integrity, leadership, and continuous improvement, 
+                            I aim to build organizations that inspire trust, promote innovation, and make a 
+                            meaningful impact on society. My mission is to create lasting value for students, 
+                            customers, partners, and communities while shaping a future driven by quality, innovation, 
+                            and sustainable progress.
+                                                </p>
 
-                    </div>
+                    <h3>Company Details</h3>
 
-                    <div>
+                    <p><strong>1.</strong> ASP COMPUTER EDUCATION</p>
+                    <p><strong>Website:</strong>
+                        <a href="https://www.aspedu.in" target="_blank">www.aspedu.in</a>
+                    </p>
 
-                        <strong>Phone :</strong>
+                    <p><strong>2.</strong> ASP SOLAR ENTERPRISE</p>
+                    <p><strong>Website:</strong>
+                        <a href="https://www.aspsolarenterprise.com" target="_blank">www.aspsolarenterprise.com</a>
+                    </p>
 
-                        +91 9003028001
+                    <p><strong>3.</strong> ASP ELECTRICAL & PLUMBING SERVICE</p>
 
-                    </div>
-
-                    <div>
-
-                        <strong>Location :</strong>
-
-                        Karaikudi, India
-
-                    </div>
-
-                    <div>
-
-                        <strong>Experience :</strong>
-
-                        5+ Years
-
-                    </div>
-
-                    <div>
-
-                        <strong>Freelance :</strong>
-
-                        Available
-
-                    </div>
+                    <p><strong>4.</strong> ASP AGRO FARMS</p>
 
                 </div>
 
             </div>
-
-        </div>
+        
 
     </section>
 
@@ -839,7 +840,7 @@
 
                 <div class="timeline-content">
 
-                    <span class="year">2013 - 2015</span>
+                    <span class="year">2014 - 2015</span>
 
                     <h3>Higher Secondary</h3>
 
@@ -861,7 +862,7 @@
 
                 <div class="timeline-content">
 
-                    <span class="year">2011 - 2013</span>
+                    <span class="year">2012 - 2013</span>
 
                     <h3>SSLC</h3>
 
@@ -900,16 +901,19 @@
 
                 <div class="timeline-content">
 
-                    <span class="year">2025 - Present</span>
+                    <span class="year">JAN 2026 - Present</span>
 
-                    <h3>Full Stack Developer</h3>
+                    <h3>Founder</h3>
 
-                    <h4>ABC Software Solutions</h4>
+                    <h4>ASP SOLAR ENTERPRISE -KARAIKUDI</h4>
 
                     <p>
-                        Developing responsive web applications
-                        using HTML, CSS, JavaScript, Java,
-                        Spring Boot and MySQL.
+                        ASP Solar Enterprise is a renewable energy company that
+                        provides solar panel installation and maintenance services
+                        for homes and small businesses. It focuses on delivering
+                        cost-effective solar power solutions. The company promotes
+                        clean and sustainable energy usage.
+
                     </p>
 
                 </div>
@@ -920,16 +924,19 @@
 
                 <div class="timeline-content">
 
-                    <span class="year">2024 - 2025</span>
+                    <span class="year">JAN 2026 - Present</span>
 
-                    <h3>Web Development Intern</h3>
+                    <h3>Founder</h3>
 
-                    <h4>XYZ Technologies</h4>
+                    <h4>ASP COMPUTER EDUCATION -KARAIKUDI</h4>
 
                     <p>
-                        Worked on responsive websites,
-                        landing pages, bug fixing and
-                        frontend UI development.
+                        ASP Computer Education is a training institute that provides
+                        basic and advanced computer courses for students. It helps
+                        learners gain practical knowledge in computer skills, typing,
+                        and office applications. The institute focuses on skill
+                        development for job opportunities and career growth.
+
                     </p>
 
                 </div>
@@ -940,24 +947,142 @@
 
                 <div class="timeline-content">
 
-                    <span class="year">2023</span>
+                    <span class="year">JAN 2023 - Present</span>
 
-                    <h3>Freelance Developer</h3>
+                    <h3>Founder</h3>
 
-                    <h4>Remote Projects</h4>
+                    <h4>ASP ELECTRICAL AND PLUMBING SERVICE - KARAIKUDI</h4>
 
                     <p>
-                        Built portfolio websites,
-                        business websites and
-                        management system applications
-                        for clients.
+                        ASP Electrical and Plumbing Service is a service-based
+                        company that provides reliable electrical and plumbing
+                        solutions for residential and small commercial buildings. It
+                        handles installation, repair, and maintenance work for
+                        electrical wiring, plumbing systems, and related
+                        infrastructure. The company focuses on safe, efficient, and
+                        cost-effective service with a commitment to customer
+                        satisfaction.
                     </p>
 
                 </div>
 
             </div>
 
+        
+         <div class="timeline-item">
+
+                <div class="timeline-content">
+
+                    <span class="year">DEC 2021 - DEC 2022</span>
+
+                    <h3>Worker</h3>
+
+                    <h4>JAE ENGINEERING -SINGAPORE </h4>
+
+                    <p>
+                        Responsible for performing assigned tasks in construction,
+                        electrical, plumbing, manufacturing, or service sectors
+                        depending on the job role.
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="timeline-item">
+
+                <div class="timeline-content">
+
+                    <span class="year">NOV 2020 - NOV 2021</span>
+
+                    <h3>GDC</h3>
+
+                    <h4>SCM GARMENT PVT LTD -UNIT 25 </h4>
+
+                    <p>
+                       A GDC in the garment industry is responsible for handling
+                        basic office and production-related documentation work.
+                        They maintain records of orders, fabric details, production
+                        reports, and inventory data using computer systems. The role
+                        also includes supporting billing, coordination between
+                        departments, and ensuring smooth day-to-day factory
+                        operations.
+
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="timeline-item">
+
+                <div class="timeline-content">
+
+                    <span class="year">APR 2020 - OCT 2020</span>
+
+                    <h3>Worker</h3>
+
+                    <h4>SENDHUR HYDRAULIC ENGINEERING -KUNNATHUR </h4>
+
+                    <p>
+                       Rig hydraulic repair involves servicing and maintaining
+                    hydraulic systems used in drilling rigs and heavy equipment.
+                    The work includes repairing hydraulic pumps, cylinders,
+                    hoses, valves, sensors, and other hydraulic control
+                    components to ensure efficient operation. Responsibilities
+                    include troubleshooting system faults, replacing damaged
+                    parts, calibrating sensors when required, and performing
+                    preventive maintenance to maintain safety and reliability.
+
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="timeline-item">
+
+                <div class="timeline-content">
+
+                    <span class="year">NOV 2019 - MAR 2020</span>
+
+                    <h3>Worker</h3>
+
+                    <h4>CLASSIC CNC ENGINEERING - COIMBATORE </h4>
+
+                    <p>
+                      Operated CNC machines to produce precision components
+                    as per production requirements. Performed machine setup,
+                    tool changes, and quality inspection using measuring
+                    instruments. Maintained production efficiency by following
+                    safety standards and routine machine maintenance.
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="timeline-item">
+
+                <div class="timeline-content">
+
+                    <span class="year">MAY 2019 - OCT 2019</span>
+
+                    <h3>SUPERVISOR</h3>
+
+                    <h4>PEPS INDUSTRIES PVT LTD - ARASUR</h4>
+
+                    <p>
+                        Supervised daily production activities and coordinated
+                    workers to achieve production targets. Monitored product
+                    quality, maintained safety standards, and ensured smooth
+                    workflow on the production floor.
+                    Prepared production reports, managed manpower, and
+                    resolved day-to-day operational issues.
+                    </p>
+
+                </div>
+
+            </div>
         </div>
+        
+
 
     </section>
 
@@ -971,7 +1096,7 @@
 
             <i class="fa-solid fa-folder-open"></i>
 
-            <h2>50+</h2>
+            <h2>150+</h2>
 
             <p>Projects Completed</p>
 
@@ -981,7 +1106,7 @@
 
             <i class="fa-solid fa-users"></i>
 
-            <h2>30+</h2>
+            <h2>300+</h2>
 
             <p>Happy Clients</p>
 
@@ -1001,7 +1126,7 @@
 
             <i class="fa-solid fa-briefcase"></i>
 
-            <h2>2+</h2>
+            <h2>5+</h2>
 
             <p>Years Experience</p>
 
@@ -1012,7 +1137,6 @@
 <!-- ====================================== -->
 <!-- SERVICES SECTION -->
 <!-- ====================================== -->
-
 <section id="services" class="services">
 
     <div class="section-title">
@@ -1022,67 +1146,70 @@
 
     <div class="services-container">
 
-        <!-- Service 1 -->
+        <div class="service-card">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h3>Computer Training Center</h3>
+            <p>Basic to Advanced Computer courses, MS Office, Tally, Programming (C, C++, Java, Python) and Web Development training.</p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-scissors"></i>
+            <h3>Tailoring Training</h3>
+            <p>Professional tailoring training for beginners and advanced learners including stitching, designing and boutique skills.</p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-spa"></i>
+            <h3>Beauty Parlour Services</h3>
+            <p>Bridal makeup, skincare treatments, hairstyling, and professional beauty training services for all occasions.</p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-solar-panel"></i>
+            <h3>Solar Services</h3>
+            <p>Solar panel installation, maintenance, and energy solutions for homes and businesses with cost-effective systems.</p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-plug-circle-bolt"></i>
+            <h3>Electrical & Plumbing</h3>
+            <p>Residential and commercial electrical wiring, maintenance, and plumbing installation & repair services.</p>
+        </div>
+
         <div class="service-card">
             <i class="fa-solid fa-code"></i>
             <h3>Web Development</h3>
-            <p>
-                Responsive and modern websites using
-                HTML5, CSS3, JavaScript and Bootstrap.
-            </p>
+            <p>Responsive and modern websites using HTML5, CSS3, JavaScript and Bootstrap.</p>
         </div>
 
-        <!-- Service 2 -->
         <div class="service-card">
             <i class="fa-solid fa-laptop-code"></i>
             <h3>Frontend Development</h3>
-            <p>
-                Beautiful UI with animations,
-                responsive layouts and user-friendly design.
-            </p>
+            <p>Beautiful UI with animations, responsive layouts and user-friendly design.</p>
         </div>
 
-        <!-- Service 3 -->
         <div class="service-card">
             <i class="fa-solid fa-server"></i>
             <h3>Backend Development</h3>
-            <p>
-                Java, Spring Boot, REST API,
-                MySQL and SQL Server development.
-            </p>
+            <p>Java, Spring Boot, REST API, MySQL and SQL Server development.</p>
         </div>
 
-        <!-- Service 4 -->
         <div class="service-card">
             <i class="fa-solid fa-database"></i>
             <h3>Database Design</h3>
-            <p>
-                Database creation,
-                optimization,
-                normalization and SQL queries.
-            </p>
+            <p>Database creation, optimization, normalization and SQL queries.</p>
         </div>
 
-        <!-- Service 5 -->
         <div class="service-card">
             <i class="fa-solid fa-mobile-screen-button"></i>
             <h3>Responsive Design</h3>
-            <p>
-                Websites that work perfectly
-                on desktop, tablet and mobile devices.
-            </p>
+            <p>Websites that work perfectly on desktop, tablet and mobile devices.</p>
         </div>
 
-        <!-- Service 6 -->
         <div class="service-card">
             <i class="fa-solid fa-bug"></i>
             <h3>Bug Fixing</h3>
-            <p>
-                Debugging Java,
-                JavaScript,
-                HTML,
-                CSS and SQL applications.
-            </p>
+            <p>Debugging Java, JavaScript, HTML, CSS and SQL applications.</p>
         </div>
 
     </div>
@@ -1101,246 +1228,65 @@
     </div>
 
     <!-- Filter Buttons -->
-
     <div class="project-filter">
-
-        <button class="active">All</button>
-
-        <button>Web</button>
-
-        <button>Java</button>
-
-        <button>Python</button>
-
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="website">Website</button>
+        <button data-filter="beauty">Beauty Parlour</button>
+        <button data-filter="solar">Solar Project</button>
+        <button data-filter="electrical">Electrical Service</button>
     </div>
 
-    <!-- Project Cards -->
-
+    <!-- All Project Cards -->
     <div class="project-container">
 
-        <!-- Project 1 -->
-
-        <div class="project-card">
-
-            <img src="images/project1.jpg"
-                alt="Project 1">
+        <!-- Website -->
+        <div class="project-card" data-category="website">
+            <img src="project-portfolio.PNG" alt="Portfolio">
 
             <div class="project-content">
-
                 <h3>Portfolio Website</h3>
-
-                <p>
-
-                    Modern responsive portfolio
-                    created using HTML, CSS
-                    and JavaScript.
-
-                </p>
+                <p>Modern responsive portfolio created using HTML, CSS and JavaScript.</p>
 
                 <div class="project-tech">
-
                     <span>HTML</span>
                     <span>CSS</span>
                     <span>JavaScript</span>
-
                 </div>
 
-                <a href="#" class="project-btn">
-
+                <a href="https://ajith-alagarsamy.vercel.app/" target="_blank" class="project-btn">
                     View Project
-
                 </a>
-
             </div>
-
         </div>
 
-        <!-- Project 2 -->
-
-        <div class="project-card">
-
-            <img src="images/project2.jpg"
-                alt="Project 2">
+        <!-- Beauty -->
+        <div class="project-card" data-category="beauty">
+            <img src="beauty.png" alt="Beauty">
 
             <div class="project-content">
-
-                <h3>Student Management System</h3>
-
-                <p>
-
-                    Java OOP project with
-                    MySQL database integration.
-
-                </p>
-
-                <div class="project-tech">
-
-                    <span>Java</span>
-                    <span>MySQL</span>
-                    <span>OOP</span>
-
-                </div>
-
-                <a href="#"
-                    class="project-btn">
-
-                    View Project
-
-                </a>
-
+                <h3>Beauty Parlour</h3>
+                <p>Beauty parlour services</p>
             </div>
-
         </div>
 
-        <!-- Project 3 -->
-
-        <div class="project-card">
-
-            <img src="images/project3.jpg"
-                alt="Project 3">
+        <!-- Solar -->
+        <div class="project-card" data-category="solar">
+            <img src="solar.png" alt="Solar">
 
             <div class="project-content">
-
-                <h3>Bank Management System</h3>
-
-                <p>
-
-                    Console application developed
-                    using Java with file handling.
-
-                </p>
-
-                <div class="project-tech">
-
-                    <span>Java</span>
-                    <span>File IO</span>
-                    <span>OOP</span>
-
-                </div>
-
-                <a href="#"
-                    class="project-btn">
-
-                    View Project
-
-                </a>
-
+                <h3>Solar Project</h3>
+                <p>Solar installation and energy solutions.</p>
             </div>
-
         </div>
 
-        <!-- Project 4 -->
-
-        <div class="project-card">
-
-            <img src="images/project4.jpg"
-                alt="Project 4">
+        <!-- Electrical -->
+        <div class="project-card" data-category="electrical">
+            <img src="electrical.png" alt="Electrical">
 
             <div class="project-content">
-
-                <h3>Hotel Management System</h3>
-
-                <p>
-
-                    Java application
-                    with customer,
-                    booking and billing modules.
-
-                </p>
-
-                <div class="project-tech">
-
-                    <span>Java</span>
-                    <span>Collections</span>
-                    <span>Scanner</span>
-
-                </div>
-
-                <a href="#"
-                    class="project-btn">
-
-                    View Project
-
-                </a>
-
+                <h3>Electrical Service</h3>
+                <p>Electrical wiring and maintenance services.</p>
             </div>
-
-        </div>
-
-        <!-- Project 5 -->
-
-        <div class="project-card">
-
-            <img src="images/project5.jpg"
-                alt="Project 5">
-
-            <div class="project-content">
-
-                <h3>E-Commerce Website</h3>
-
-                <p>
-
-                    Shopping website
-                    with responsive UI
-                    and product pages.
-
-                </p>
-
-                <div class="project-tech">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-
-                </div>
-
-                <a href="#"
-                    class="project-btn">
-
-                    View Project
-
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- Project 6 -->
-
-        <div class="project-card">
-
-            <img src="images/project6.jpg"
-                alt="Project 6">
-
-            <div class="project-content">
-
-                <h3>Employee Management</h3>
-
-                <p>
-
-                    CRUD application
-                    developed using
-                    Java and MySQL.
-
-                </p>
-
-                <div class="project-tech">
-
-                    <span>Java</span>
-                    <span>SQL</span>
-                    <span>CRUD</span>
-
-                </div>
-
-                <a href="#"
-                    class="project-btn">
-
-                    View Project
-
-                </a>
-
-            </div>
-
         </div>
 
     </div>
@@ -1360,38 +1306,7 @@
 
     <div class="gallery-container">
 
-        <div class="gallery-item">
-            <img src="images/gallery1.jpg" alt="Gallery 1">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery2.jpg" alt="Gallery 2">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery3.jpg" alt="Gallery 3">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery4.jpg" alt="Gallery 4">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery5.jpg" alt="Gallery 5">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery6.jpg" alt="Gallery 6">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery7.jpg" alt="Gallery 7">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery8.jpg" alt="Gallery 8">
-        </div>
-
+        
     </div>
 
 </section>
@@ -1404,53 +1319,42 @@
 
     <div class="section-title">
         <h2>Certifications</h2>
-        <span>Professional Learning</span>
+        <span></span>
     </div>
 
     <div class="certificate-container">
-
         <div class="certificate-card">
-            <i class="fa-solid fa-certificate"></i>
-            <h3>Java Programming</h3>
-            <p>Completed Advanced Java Programming Certification.</p>
-            <span>2025</span>
+
+            
+            <h3>B.E MECHANICAL ENGINEERING DEGREE CERTIFICATE</h3>
+            <span>2019</span>
+             <!-- PDF LINK -->
+            <a href="AJITH DEGREE CERTIFICATE.pdf" target="_blank"class="cert-link">
+            View Certificate (PDF)
+        </a>
+        </div>
+        <div class="certificate-card">
+
+            
+            <h3>B.E MECHANICAL ENGINEERING PROVISIONAL CERTIFICATE</h3>
+            <span>2019</span>
+             <!-- PDF LINK -->
+            <a href="provisional certificate .pdf" target="_blank"class="cert-link">
+            View Certificate (PDF)
+        </a>
+        </div>
+        <div class="certificate-card">
+
+            
+            <h3>B.E MECHANICAL ENGINEERING COURSE COMPLETION CERTIFICATE</h3>
+            <span>2019</span>
+             <!-- PDF LINK -->
+            <a href="Course Completion Certificate.pdf" target="_blank"class="cert-link">
+            View Certificate (PDF)
+        </a>
         </div>
 
-        <div class="certificate-card">
-            <i class="fa-solid fa-certificate"></i>
-            <h3>Python Development</h3>
-            <p>Professional Python Developer Certification.</p>
-            <span>2025</span>
-        </div>
-
-        <div class="certificate-card">
-            <i class="fa-solid fa-certificate"></i>
-            <h3>Web Development</h3>
-            <p>Responsive Web Design using HTML, CSS and JavaScript.</p>
-            <span>2024</span>
-        </div>
-
-        <div class="certificate-card">
-            <i class="fa-solid fa-certificate"></i>
-            <h3>SQL & Database</h3>
-            <p>Database Design and SQL Programming Certification.</p>
-            <span>2024</span>
-        </div>
-
-        <div class="certificate-card">
-            <i class="fa-solid fa-certificate"></i>
-            <h3>Spring Boot</h3>
-            <p>REST API and Spring Boot Development.</p>
-            <span>2025</span>
-        </div>
-
-        <div class="certificate-card">
-            <i class="fa-solid fa-certificate"></i>
-            <h3>Git & GitHub</h3>
-            <p>Version Control and Collaboration Certification.</p>
-            <span>2025</span>
-        </div>
-
+        
     </div>
 
 </section>
@@ -1496,67 +1400,6 @@
 
 </section>
 
-<!-- ====================================== -->
-<!-- TESTIMONIALS -->
-<!-- ====================================== -->
-
-<section id="testimonials" class="testimonials">
-
-    <div class="section-title">
-        <h2>Testimonials</h2>
-        <span>What People Say</span>
-    </div>
-
-    <div class="testimonial-container">
-
-        <div class="testimonial-card">
-
-            <img src="images/client1.jpg" alt="Client 1">
-
-            <h3>Michael Johnson</h3>
-
-            <h4>CEO, Tech Solutions</h4>
-
-            <p>
-                "Excellent developer with great technical
-                knowledge and communication skills."
-            </p>
-
-        </div>
-
-        <div class="testimonial-card">
-
-            <img src="images/client2.jpg" alt="Client 2">
-
-            <h3>Sarah Williams</h3>
-
-            <h4>Project Manager</h4>
-
-            <p>
-                "Delivered the project before deadline with
-                outstanding quality and responsiveness."
-            </p>
-
-        </div>
-
-        <div class="testimonial-card">
-
-            <img src="images/client3.jpg" alt="Client 3">
-
-            <h3>David Brown</h3>
-
-            <h4>Business Owner</h4>
-
-            <p>
-                "Highly recommended for modern website
-                development and Java applications."
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
 
 <!-- ====================================== -->
 <!-- CONTACT SECTION -->
@@ -1790,9 +1633,9 @@
 
             <p>
 
-                Full Stack Developer passionate
-                about creating modern websites
-                and software solutions.
+                I am a passionate entrepreneur running multiple training 
+                and service-based businesses, focusing on computer education,
+                 solar energy solutions, and skill development programs.
 
             </p>
 
@@ -1832,34 +1675,28 @@
 
             <div class="social-links">
 
-                <a href="#">
-
-                    <i class="fab fa-facebook-f"></i>
-
+                <a href="https://www.facebook.com/ajith.alagarsamy.3" target="_blank">
+                    <i class="fab fa-facebook"></i>
                 </a>
 
-                <a href="#">
-
+                <a href="https://www.instagram.com/ajith___004" target="_blank">
                     <i class="fab fa-instagram"></i>
-
                 </a>
 
-                <a href="#">
-
-                    <i class="fab fa-linkedin-in"></i>
-
+                <a href="https://www.linkedin.com/in/asp-computer-education-9243663aa/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
                 </a>
 
-                <a href="#">
-
+                <a href="https://github.com/aspcomputereducation" target="_blank">
                     <i class="fab fa-github"></i>
-
                 </a>
 
-                <a href="#">
+                <a href="https://x.com/AspComputer" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
 
+                <a href="https://www.youtube.com/channel/UCOslxKL0jbk-Vp45o4RTLOg" target="_blank">
                     <i class="fab fa-youtube"></i>
-
                 </a>
 
             </div>
@@ -1883,10 +1720,19 @@
     </div>
 
 </footer>
+</div>
 
 
-</html>
-    <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+<script type="module">
+import * as THREE from 'https://unpkg.com/three@latest/build/three.module.js';
+</script>
+
+<script src="script.js" defer></script>
+
 
 </body>
 </html>
