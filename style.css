@@ -492,54 +492,6 @@ body{
     animation:pulseGlow 4s infinite;
 }
 
-/* Loader Circle */
-
-.loader-circle{
-    width:140px;
-    height:140px;
-    border-radius:50%;
-    border:6px solid rgba(255,255,255,.08);
-    border-top:6px solid #00ffff;
-    box-shadow:
-    0 0 20px cyan,
-    0 0 60px cyan,
-    inset 0 0 20px cyan;
-    animation:spin 1s linear infinite;
-    z-index:10;
-}
-
-#loader h1{
-    margin-top:35px;
-    color:#00ffff;
-    font-size:24px;
-    letter-spacing:8px;
-    text-shadow:
-    0 0 15px cyan,
-    0 0 40px cyan;
-    animation:blink 1s infinite;
-    z-index:10;
-}
-
-/* Loading Bar */
-
-.loading-bar{
-    width:320px;
-    height:8px;
-    margin-top:30px;
-    background:#03111f;
-    border-radius:50px;
-    overflow:hidden;
-    z-index:10;
-}
-
-.loading-fill{
-    width:0;
-    height:100%;
-    background:linear-gradient(90deg,#00ffff,#00bfff,#00ffff);
-    box-shadow:0 0 20px cyan;
-    animation:loading 3s linear forwards;
-}
-
 /* Animations */
 
 @keyframes spin{
@@ -3947,7 +3899,7 @@ strong {
 =========================== */
 
 .contact{
-    background:#f8f9fc;
+    background:#ffffff;
     position:relative;
     padding:100px 10%;
 }
@@ -4791,17 +4743,31 @@ strong {
     transform:rotate(180deg);
 
 }
+/* ICON DEFAULT */
+.theme-toggle .sun {
+    display: none;
+}
+
+.theme-toggle .moon {
+    display: inline-block;
+}
+
+/* DARK MODE ICON SWITCH */
+body.dark .theme-toggle .sun {
+    display: inline-block;
+}
+
+body.dark .theme-toggle .moon {
+    display: none;
+}
 
 /* ===========================
    DARK MODE
 =========================== */
 
-body.dark{
-
-    background:#111827;
-
-    color:#f3f4f6;
-
+body.dark {
+    background: #111827;
+    color: #fff;
 }
 
 body.dark section{
