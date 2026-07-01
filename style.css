@@ -5855,3 +5855,51 @@ body.dark .footer{
     }
 
 }
+/* =====================================================================
+   MOBILE NAV VISIBILITY FIX  —  append after all existing CSS
+   Scope: mobile only (navbar becomes visible below 768px).
+   Fixes: .navbar a inherits body's dark text color against the
+   black .navbar background, making links invisible.
+===================================================================== */
+@media (max-width:768px){
+
+    /* ---------- Nav links: bright blue on black ---------- */
+    .header .navbar.active ul li a{
+        color:#4da6ff;              /* bright blue, readable on black */
+    }
+
+    /* ---------- Hover / current-page link ---------- */
+    .header .navbar.active ul li a:hover,
+    .header .navbar.active ul li a.active{
+        color:#06b6d4;               /* theme secondary (cyan-blue) */
+        text-shadow:0 0 6px rgba(6,182,212,.5);
+    }
+
+    /* ---------- Any icons inside nav links ---------- */
+    .header .navbar.active ul li a i{
+        color:inherit;
+    }
+
+    /* ---------- Hamburger / close icon ---------- */
+    .header .menu-btn{
+        color:var(--primary);
+    }
+
+    .header .navbar.active ~ .menu-btn,
+    .header .menu-btn.active{
+        color:#06b6d4;
+    }
+
+}
+
+/* ---------- Dark mode variant, same fix ---------- */
+@media (max-width:768px){
+    body.dark .header .navbar.active ul li a{
+        color:#4da6ff;
+    }
+
+    body.dark .header .navbar.active ul li a:hover,
+    body.dark .header .navbar.active ul li a.active{
+        color:#06b6d4;
+    }
+}
