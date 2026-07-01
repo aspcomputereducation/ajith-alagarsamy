@@ -5855,51 +5855,65 @@ body.dark .footer{
     }
 
 }
+
+
+
 /* =====================================================================
-   MOBILE NAV VISIBILITY FIX  —  append after all existing CSS
-   Scope: mobile only (navbar becomes visible below 768px).
-   Fixes: .navbar a inherits body's dark text color against the
-   black .navbar background, making links invisible.
+   MOBILE NAV BACKGROUND + DARK MODE FIX
+   - Makes the mobile nav panel white in light mode (was hardcoded black)
+   - Adds a matching body.dark variant so it actually responds to the
+     dark-mode toggle on mobile (previously it had none)
+   - Re-tunes link/icon colors for contrast against each background
 ===================================================================== */
+
 @media (max-width:768px){
 
-    /* ---------- Nav links: bright blue on black ---------- */
-    .header .navbar.active ul li a{
-        color:#4da6ff;              /* bright blue, readable on black */
+    /* ---------- Nav panel: light mode ---------- */
+    .navbar{
+        background:#ffffff;
+        box-shadow:0 12px 30px rgba(0,0,0,.15);
     }
 
-    /* ---------- Hover / current-page link ---------- */
+    .header .navbar.active ul li a{
+        color:var(--primary);
+    }
+
     .header .navbar.active ul li a:hover,
     .header .navbar.active ul li a.active{
-        color:#06b6d4;               /* theme secondary (cyan-blue) */
-        text-shadow:0 0 6px rgba(6,182,212,.5);
+        color:#1d4ed8;
     }
 
-    /* ---------- Any icons inside nav links ---------- */
     .header .navbar.active ul li a i{
         color:inherit;
     }
 
-    /* ---------- Hamburger / close icon ---------- */
+    /* ---------- Hamburger / close icon: light mode ---------- */
     .header .menu-btn{
         color:var(--primary);
     }
 
-    .header .navbar.active ~ .menu-btn,
-    .header .menu-btn.active{
-        color:#06b6d4;
-    }
-
 }
 
-/* ---------- Dark mode variant, same fix ---------- */
+/* ---------- Dark mode variants (higher specificity, always wins) ---------- */
 @media (max-width:768px){
+
+    body.dark .navbar{
+        background:#111827;
+        box-shadow:0 12px 30px rgba(0,0,0,.55);
+    }
+
     body.dark .header .navbar.active ul li a{
-        color:#4da6ff;
+        color:#60a5fa;
     }
 
     body.dark .header .navbar.active ul li a:hover,
     body.dark .header .navbar.active ul li a.active{
         color:#06b6d4;
+        text-shadow:0 0 6px rgba(6,182,212,.5);
     }
+
+    body.dark .header .menu-btn{
+        color:#93c5fd;
+    }
+
 }
