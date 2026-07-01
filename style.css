@@ -5132,3 +5132,726 @@ body.dark .footer{
     }
 
 }
+/* =====================================================================
+   RESPONSIVE ADDITIONS  —  APPEND THIS BLOCK TO THE END OF style.css
+   -----------------------------------------------------------------
+   Rules in this file:
+   - Nothing above this point is modified, removed, or renamed.
+   - Only @media overrides are added below.
+   - Desktop (> 1200px) appearance is untouched — none of these rules
+     fire above 1200px.
+   - Existing class names / IDs / HTML structure are reused as-is.
+   ===================================================================== */
+
+
+/* =====================================================================
+   BREAKPOINT: 1200px and below
+   (Large tablets / small laptops — start tightening side padding
+   and loosen a few fixed pixel values that would otherwise overflow)
+===================================================================== */
+@media (max-width:1200px){
+
+    section{
+        padding:90px 6%;
+    }
+
+    .hero{
+        gap:40px;
+        padding-top:130px;
+    }
+
+    .hero-left h1{
+        font-size:52px;
+    }
+
+    .image-box{
+        width:380px;
+        height:380px;
+        margin-left:0;
+    }
+
+    .about-image,
+    .about-image img{
+        max-width:340px;
+    }
+
+    .contact-container{
+        gap:35px;
+    }
+
+    .services,
+    .achievements,
+    .certificates,
+    .testimonials,
+    .contact{
+        padding:90px 6%;
+    }
+
+}
+
+
+/* =====================================================================
+   BREAKPOINT: 992px and below
+   (Tablets — collapse two-column layouts to a single flexible column,
+   keep everything from overflowing)
+===================================================================== */
+@media (max-width:992px){
+
+    /* ---------- Global / overflow safety ---------- */
+    html,
+    body{
+        overflow-x:hidden;
+        max-width:100%;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding-top:150px;
+    }
+
+    .hero-left h2{
+        justify-content:center;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .social-icons{
+        justify-content:center;
+    }
+
+    .image-box{
+        width:320px;
+        height:320px;
+        margin:0 auto;
+    }
+
+    .typing{
+        min-width:0;
+        white-space:normal;
+    }
+
+    /* ---------- About ---------- */
+    .about-container{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    .about-image{
+        flex:0 0 auto;
+        max-width:340px;
+    }
+
+    .about-image img{
+        width:100%;
+        height:auto;
+        max-height:420px;
+    }
+
+    .about-content{
+        min-width:0;
+        width:100%;
+    }
+
+    .about-content p{
+        text-align:left;
+    }
+
+    .about-info{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .entrepreneur-text{
+        font-size:44px;
+    }
+
+    /* ---------- Skills ---------- */
+    .skills-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* ---------- Grids that used fixed 3-4 col layouts ---------- */
+    .services-container,
+    .certificate-container,
+    .achievement-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .project-container,
+    .gallery-container,
+    .testimonial-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .statistics{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =====================================================================
+   BREAKPOINT: 768px and below
+   (Large phones / small tablets — this project already ships some
+   768px rules above; these additions layer further fixes on top and
+   win by source order without altering the originals)
+===================================================================== */
+@media (max-width:768px){
+
+    section{
+        padding:70px 6%;
+    }
+
+    /* ---------- Header / Nav safety net ---------- */
+    .header{
+        padding:15px 5%;
+    }
+
+    .logo a{
+        font-size:24px;
+    }
+
+    .navbar{
+        max-height:80vh;
+        overflow-y:auto;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero-left h1{
+        font-size:38px;
+        line-height:1.3;
+    }
+
+    .hero-left h2{
+        font-size:24px;
+    }
+
+    .typing-home{
+        font-size:24px;
+    }
+
+    .hero-text{
+        font-size:16px;
+    }
+
+    .image-box{
+        width:260px;
+        height:260px;
+    }
+
+    .hero-buttons .btn,
+    .hero-buttons .btn-outline{
+        padding:13px 26px;
+        font-size:15px;
+    }
+
+    /* ---------- About ---------- */
+    .about-image img{
+        width:100%;
+        max-width:280px;
+        height:auto;
+    }
+
+    .about-content h3{
+        font-size:26px;
+    }
+
+    .entrepreneur-text{
+        font-size:32px;
+        letter-spacing:3px;
+    }
+
+    /* ---------- Skills ---------- */
+    .skills-container{
+        grid-template-columns:1fr;
+    }
+
+    .tab-buttons{
+        gap:10px;
+    }
+
+    .tab-btn{
+        width:48%;
+        padding:10px 15px;
+        font-size:14px;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+
+    /* ---------- Timeline ---------- */
+    .timeline-item{
+        padding:15px 20px 15px 55px;
+    }
+
+    .timeline-content{
+        padding:22px;
+    }
+
+    .timeline-content h3{
+        font-size:19px;
+    }
+
+    /* ---------- Statistics ---------- */
+    .statistics{
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+    }
+
+    .stat-box h2{
+        font-size:32px;
+    }
+
+    /* ---------- Services / Projects / Gallery / Certificates /
+       Achievements / Testimonials ---------- */
+    .services-container,
+    .project-container,
+    .gallery-container,
+    .certificate-container,
+    .achievement-container,
+    .testimonial-container{
+        grid-template-columns:1fr;
+    }
+
+    .service-card,
+    .certificate-card,
+    .achievement-card,
+    .testimonial-card{
+        padding:30px 20px;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-info,
+    .contact-form{
+        padding:25px;
+    }
+
+    .contact-info h3{
+        font-size:24px;
+    }
+
+    .contact-form .btn{
+        width:100%;
+    }
+
+    /* ---------- Newsletter ---------- */
+    .newsletter-content h2{
+        font-size:26px;
+    }
+
+    .newsletter-form input{
+        min-width:0;
+        width:100%;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .footer-social .social-links{
+        justify-content:center;
+    }
+
+    /* ---------- Floating buttons ---------- */
+    .scroll-top,
+    .theme-toggle{
+        width:46px;
+        height:46px;
+        font-size:17px;
+        right:15px;
+        left:15px;
+        bottom:15px;
+    }
+
+    .theme-toggle{
+        left:15px;
+        right:auto;
+    }
+
+    .scroll-top{
+        right:15px;
+        left:auto;
+    }
+
+}
+
+
+/* =====================================================================
+   BREAKPOINT: 576px and below
+   (Standard phones)
+===================================================================== */
+@media (max-width:576px){
+
+    section{
+        padding:60px 5%;
+    }
+
+    .hero-left h1{
+        font-size:32px;
+    }
+
+    .hero-left h2{
+        font-size:20px;
+        text-align:center;
+    }
+
+    .welcome{
+        font-size:14px;
+    }
+
+    .hero-text{
+        font-size:15px;
+    }
+
+    .image-box{
+        width:220px;
+        height:220px;
+        border-width:3px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        width:100%;
+        gap:14px;
+    }
+
+    .hero-buttons .btn,
+    .hero-buttons .btn-outline{
+        width:100%;
+        text-align:center;
+    }
+
+    .social-icons a{
+        width:40px;
+        height:40px;
+        font-size:16px;
+        margin:0 5px;
+    }
+
+    .about-info{
+        grid-template-columns:1fr;
+    }
+
+    .about-content h3{
+        font-size:22px;
+    }
+
+    .about-content p{
+        font-size:15px;
+    }
+
+    .entrepreneur-text{
+        font-size:24px;
+        letter-spacing:2px;
+    }
+
+    .tab-btn{
+        width:100%;
+    }
+
+    .skill-box{
+        padding:18px;
+    }
+
+    .statistics{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .service-card i,
+    .certificate-card i,
+    .achievement-card i{
+        width:65px;
+        height:65px;
+        line-height:65px;
+        font-size:26px;
+    }
+
+    .service-card h3,
+    .certificate-card h3,
+    .achievement-card h3{
+        font-size:19px;
+    }
+
+    .project-content h3{
+        font-size:20px;
+    }
+
+    .gallery-item img{
+        height:200px;
+    }
+
+    .testimonial-card img{
+        width:80px;
+        height:80px;
+    }
+
+    .contact-info,
+    .contact-form{
+        padding:20px;
+    }
+
+    .input-group input,
+    .input-group textarea{
+        padding:13px 16px;
+        font-size:15px;
+    }
+
+    .newsletter-content h2{
+        font-size:22px;
+    }
+
+    .newsletter-content p{
+        font-size:14px;
+    }
+
+    .footer-about h2{
+        font-size:24px;
+    }
+
+    .footer-links h3,
+    .footer-social h3{
+        font-size:19px;
+    }
+
+}
+
+
+/* =====================================================================
+   BREAKPOINT: 480px and below
+   (Small phones — layers on top of the project's existing 480px rules)
+===================================================================== */
+@media (max-width:480px){
+
+    section{
+        padding:50px 5%;
+    }
+
+    .header{
+        padding:12px 4%;
+    }
+
+    .logo a{
+        font-size:20px;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero-left h1{
+        font-size:28px;
+    }
+
+    .hero-left h2{
+        font-size:18px;
+    }
+
+    .image-box{
+        width:180px;
+        height:180px;
+    }
+
+    .about-image img{
+        max-width:100%;
+    }
+
+    .entrepreneur-text{
+        font-size:18px;
+        letter-spacing:1px;
+    }
+
+    .section-title h2{
+        font-size:24px;
+    }
+
+    .skill-tags span{
+        padding:8px 14px;
+        font-size:13px;
+    }
+
+    .timeline-content h3{
+        font-size:17px;
+    }
+
+    .timeline-content .year{
+        font-size:12px;
+        padding:5px 12px;
+    }
+
+    .service-card,
+    .certificate-card,
+    .achievement-card{
+        padding:22px 16px;
+    }
+
+    .project-card img{
+        height:170px;
+    }
+
+    .project-tech span{
+        font-size:12px;
+        padding:5px 10px;
+    }
+
+    .gallery-item img{
+        height:180px;
+    }
+
+    .certificate-card a{
+        width:100%;
+        padding:10px 0;
+    }
+
+    .testimonial-card p{
+        font-size:13px;
+    }
+
+    .contact-info h3{
+        font-size:21px;
+    }
+
+    .info-box i{
+        width:42px;
+        height:42px;
+        font-size:16px;
+    }
+
+    .newsletter{
+        padding:50px 5%;
+    }
+
+    .footer{
+        padding:50px 5% 20px;
+    }
+
+    .copyright p{
+        font-size:12px;
+    }
+
+}
+
+
+/* =====================================================================
+   BREAKPOINT: 375px and below
+   (Very small phones — final safety net so nothing clips or overflows)
+===================================================================== */
+@media (max-width:375px){
+
+    .hero-left h1{
+        font-size:24px;
+    }
+
+    .hero-left h2{
+        font-size:16px;
+    }
+
+    .image-box{
+        width:150px;
+        height:150px;
+    }
+
+    .btn,
+    .btn-outline{
+        padding:12px 20px;
+        font-size:14px;
+    }
+
+    .social-icons a{
+        width:36px;
+        height:36px;
+        font-size:14px;
+        margin:0 4px;
+    }
+
+    .section-title h2{
+        font-size:20px;
+    }
+
+    .skill-box h4{
+        font-size:16px;
+    }
+
+    .stat-box h2{
+        font-size:26px;
+    }
+
+    .stat-box p{
+        font-size:14px;
+    }
+
+    .service-card h3,
+    .certificate-card h3,
+    .achievement-card h3{
+        font-size:17px;
+    }
+
+    .project-content h3{
+        font-size:18px;
+    }
+
+    .testimonial-card h3{
+        font-size:18px;
+    }
+
+    .contact-info h3{
+        font-size:19px;
+    }
+
+    .newsletter-content h2{
+        font-size:19px;
+    }
+
+    .newsletter-form button{
+        width:100%;
+        padding:14px 20px;
+    }
+
+}
+
+
+/* =====================================================================
+   GLOBAL MOBILE SAFETY NET
+   (Applies from tablet width down — guards against horizontal
+   scrollbars caused by fixed-width elements, oversized backgrounds,
+   or the decorative full-viewport layers used in the hero/loader)
+===================================================================== */
+@media (max-width:992px){
+
+    img,
+    video,
+    iframe,
+    table{
+        max-width:100%;
+    }
+
+    .glow,
+    .cyber-grid,
+    #scene,
+    #particles{
+        max-width:100vw;
+    }
+
+    .loading-bar{
+        width:80%;
+        max-width:320px;
+    }
+
+}
