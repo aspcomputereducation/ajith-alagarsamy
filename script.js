@@ -79,38 +79,38 @@ window.addEventListener("scroll",()=>{
     }
 
 });
-const cursor = document.querySelector(".cursor");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (cursor) {
+    const text = "Ajith Alagarsamy";
+    const target = document.getElementById("nameTyping");
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
+    let i = 0;
 
-    document.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
+    function typeWriter() {
 
-    function animate() {
-        cursorX += (mouseX - cursorX) * 0.1;
-        cursorY += (mouseY - cursorY) * 0.1;
+        if (i < text.length) {
 
-        cursor.style.left = cursorX + "px";
-        cursor.style.top = cursorY + "px";
+            target.textContent += text.charAt(i);
 
-        requestAnimationFrame(animate);
+            i++;
+
+            setTimeout(typeWriter, 500);
+
+        }
+
     }
 
-    animate();
-}
+    typeWriter();
+
+});
+
+
 /*=====================================
     CURSOR HOVER EFFECT
 =====================================*/
 
 const hoverElements = document.querySelectorAll(
-    "button, .btn, .project-btn, a"
+    "button, .btn, .project-btn, a, .timeline-content, .service-card, .project-card"
 );
 
 hoverElements.forEach(item => {
@@ -158,15 +158,11 @@ tabButtons.forEach(button => {
 
 window.addEventListener("scroll",()=>{
 
-    stickyHeader();
 
-    activeNavigation();
 
     revealOnScroll();
 
-    updateScrollButton();
-
-    parallaxEffect();
+   
 
     let current="";
 
@@ -268,7 +264,6 @@ revealOnScroll();
 /*=====================================
     TYPING ANIMATION
 =====================================*/
-
 const typingElement = document.querySelector(".typing");
 
 const typingTexts = [
@@ -277,7 +272,7 @@ const typingTexts = [
     "Python Developer",
     "Web Designer",
     "UI / UX Designer",
-    "Freelancer"
+    "Entrepreneur"
 ];
 
 let textIndex = 0;
@@ -290,47 +285,94 @@ function typeEffect(){
 
     const currentText = typingTexts[textIndex];
 
+    typingElement.textContent = currentText.substring(0, charIndex);
+
     if(!deleting){
 
-        typingElement.textContent =
-            currentText.substring(0,charIndex++);
+        charIndex++;
 
         if(charIndex > currentText.length){
 
+            if(textIndex === typingTexts.length - 1){
+                typingElement.textContent = "Entrepreneur"; 
+                return; // STOP FULLY
+            }
+
             deleting = true;
-
-            setTimeout(typeEffect,1500);
-
+            setTimeout(typeEffect, 1200);
             return;
-
         }
 
     }else{
 
-        typingElement.textContent =
-            currentText.substring(0,charIndex--);
+        charIndex--;
 
         if(charIndex < 0){
 
             deleting = false;
-
             textIndex++;
-
-            if(textIndex >= typingTexts.length){
-
-                textIndex = 0;
-
-            }
-
         }
-
     }
 
-    setTimeout(typeEffect,deleting ? 60 : 120);
-
+    setTimeout(typeEffect, deleting ? 60 : 120);
 }
 
 typeEffect();
+/*=====================================
+    ABOUT TYPE ANIMATION
+=====================================*/
+const homeTyping = document.querySelector(".typing-home");
+
+const homeTexts = [
+    "Full Stack Developer",
+    "Java Developer",
+    "Python Developer",
+    "UI / UX Designer",
+    "Entrepreneur"
+];
+
+let i = 0, j = 0, del = false;
+
+function typeHome(){
+
+    if(!homeTyping) return;
+
+    const text = homeTexts[i];
+
+    homeTyping.textContent = text.substring(0, j);
+
+    if(!del){
+
+        j++;
+
+        if(j > text.length){
+
+            // 🏁 LAST WORD STOP
+            if(i === homeTexts.length - 1){
+                homeTyping.textContent = "Entrepreneur";
+                homeTyping.classList.add("stamp");
+                return;
+            }
+
+            del = true;
+            setTimeout(typeHome, 600);
+            return;
+        }
+
+    }else{
+
+        j--;
+
+        if(j < 0){
+            del = false;
+            i++;
+        }
+    }
+
+    setTimeout(typeHome, del ? 25 : 120);
+}
+
+typeHome();
 
 /*=====================================
     COUNTER ANIMATION
@@ -630,22 +672,54 @@ contactItems.forEach(item=>{
 /*=====================================
     PAGE LOADER ANIMATION
 =====================================*/
-
 window.addEventListener("load", () => {
 
-    document.body.classList.add("loaded");
+    setTimeout(() => {
 
-    const hero = document.querySelector(".hero");
-    
+        const loader = document.getElementById("loader");
+        const main = document.getElementById("main-content");
 
+        loader.style.opacity = "0";
 
-    if(hero){
+        setTimeout(() => {
 
-        hero.classList.add("fade");
+            loader.style.display = "none";
+            main.style.display = "block";
 
-    }
+            // 🔥 START ENTIRE WEBSITE HERE
+            initWebsite();
+
+        }, 800);
+
+    }, 2000);
 
 });
+
+function startCursor() {
+
+    const cursor = document.querySelector(".cursor");
+    const blur = document.querySelector(".cursor-blur");
+
+    if (!cursor || !blur) {
+        console.log("Cursor missing in HTML");
+        return;
+    }
+
+    document.addEventListener("mousemove", (e) => {
+
+        const x = e.clientX;
+        const y = e.clientY;
+
+        cursor.style.left = x + "px";
+        cursor.style.top = y + "px";
+
+        blur.style.left = x + "px";
+        blur.style.top = y + "px";
+
+    });
+
+}
+startCursor();
 
 /*=====================================
     PARALLAX EFFECT
@@ -816,80 +890,6 @@ console.log(
 
 
 /*=====================================
-    SELECT ELEMENTS
-=====================================*/
-
-const filterButtons =
-document.querySelectorAll(".filter-btn");
-
-const projectCards =
-document.querySelectorAll(".project-card");
-
-/*=====================================
-    FILTER FUNCTION
-=====================================*/
-
-function filterProjects(category) {
-
-    projectCards.forEach(card => {
-
-        const projectCategory = card.getAttribute("data-category");
-
-        if (category === "all" || projectCategory === category) {
-
-            card.classList.remove("hide");
-
-            setTimeout(() => {
-                card.style.opacity = "1";
-                card.style.transform = "scale(1)";
-            }, 100);
-
-        } else {
-
-            card.style.opacity = "0";
-            card.style.transform = "scale(.8)";
-
-            setTimeout(() => {
-                card.classList.add("hide");
-            }, 300);
-
-        }
-
-    });
-
-}
-/*=====================================
-    BUTTON EVENTS
-=====================================*/
-
-filterButtons.forEach(button=>{
-
-    button.addEventListener("click",()=>{
-
-        filterButtons.forEach(btn=>{
-
-            btn.classList.remove("active");
-
-        });
-
-        button.classList.add("active");
-
-        const category =
-        button.getAttribute("data-filter");
-
-        filterProjects(category);
-
-    });
-
-});
-
-/*=====================================
-    SHOW ALL ON LOAD
-=====================================*/
-
-filterProjects("all");
-
-/*=====================================
     CARD HOVER EFFECT
 =====================================*/
 
@@ -986,39 +986,7 @@ updateProjectCount();
 
 
 
-/*=====================================
-    CREATE LIGHTBOX
-=====================================*/
-let lightbox = null;
-let lightboxImg = null;
-let currentIndex = 0;
 
-function createLightbox(){
-
-    lightbox = document.createElement("div");
-    lightbox.className = "lightbox";
-
-    lightbox.innerHTML = `
-        <span class="close">&times;</span>
-        <img src="" alt="Preview Image">
-    `;
-
-    document.body.appendChild(lightbox);
-
-    lightboxImg = lightbox.querySelector("img");
-
-    /* Close button */
-    lightbox.querySelector(".close")
-        .addEventListener("click", closeLightbox);
-
-    /* Click outside image closes */
-    lightbox.addEventListener("click", (e) => {
-        if(e.target === lightbox){
-            closeLightbox();
-        }
-    });
-
-}
 
 /*=====================================
     OPEN LIGHTBOX
@@ -1305,17 +1273,30 @@ function addNavButtons(){
 /*=====================================
     MODIFY CREATE LIGHTBOX TO INCLUDE NAV
 =====================================*/
+function createLightbox(){
+    lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
 
-const originalCreateLightbox = createLightbox;
+    lightbox.innerHTML = `
+        <span class="close">&times;</span>
+        <img src="" alt="Preview Image">
+    `;
 
-createLightbox = function(){
+    document.body.appendChild(lightbox);
 
-    originalCreateLightbox();
+    lightboxImg = lightbox.querySelector("img");
 
-    addNavButtons();
+    lightbox.querySelector(".close")
+        .addEventListener("click", closeLightbox);
 
-};
+    lightbox.addEventListener("click", (e) => {
+        if(e.target === lightbox){
+            closeLightbox();
+        }
+    });
 
+    addNavButtons(); // ✅ HERE instead
+}
 /*=====================================
     NAV BUTTON STYLES
 =====================================*/
@@ -1560,4 +1541,1080 @@ window.addEventListener("error",(e)=>{
     console.warn("Script error:",e.message);
 
 });
+/*=========================================================
+    PART 3A-1
+    THREE.JS SETUP
+=========================================================*/
+
+const canvas = document.getElementById("scene");
+
+/*=========================================
+    SCENE
+=========================================*/
+
+const scene = new THREE.Scene();
+
+scene.background = null;
+
+/*=========================================
+    CAMERA
+=========================================*/
+
+const camera = new THREE.PerspectiveCamera(
+
+    45,
+
+    window.innerWidth / window.innerHeight,
+
+    0.1,
+
+    1000
+
+);
+
+camera.position.set(0, 2, 8);
+
+scene.add(camera);
+
+/*=========================================
+    RENDERER
+=========================================*/
+
+const renderer = new THREE.WebGLRenderer({
+
+    canvas: canvas,
+
+    antialias: true,
+
+    alpha: true,
+
+    powerPreference: "high-performance"
+
+});
+
+renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio, 2)
+);
+
+renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+);
+
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+renderer.shadowMap.enabled = true;
+
+renderer.shadowMap.type =
+THREE.PCFSoftShadowMap;
+
+/*=========================================
+    CLOCK
+=========================================*/
+
+const clock = new THREE.Clock();
+
+/*=========================================
+    GROUPS
+=========================================*/
+
+const world = new THREE.Group();
+
+const effects = new THREE.Group();
+
+scene.add(world);
+
+scene.add(effects);
+
+/*=========================================
+    MOUSE
+=========================================*/
+
+const mouse = {
+
+    x:0,
+
+    y:0
+
+};
+
+window.addEventListener("mousemove",(e)=>{
+
+    mouse.x =
+
+    (e.clientX / window.innerWidth) * 2 - 1;
+
+    mouse.y =
+
+    -(e.clientY / window.innerHeight) * 2 + 1;
+
+});
+
+/*=========================================
+    LOADER HIDE
+=========================================*/
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+
+        loader.style.opacity = "0";
+        loader.style.pointerEvents = "none";
+
+        setTimeout(() => {
+            loader.remove();
+
+            // =========================
+            // GSAP ANIMATION START HERE
+            // =========================
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.from(".service-card", {
+
+                scrollTrigger: {
+                    trigger: ".services-container",
+                    start: "top 80%"
+                },
+
+                opacity: 0,
+                y: 100,
+                scale: 0.8,
+                rotationX: 45,
+
+                duration: 0.9,
+                ease: "power3.out",
+                stagger: 0.2
+            });
+
+        }, 1000);
+
+    }, 2500);
+
+});
+/*=========================================
+    CAMERA MOTION
+=========================================*/
+
+function updateCamera(){
+
+    camera.position.x +=
+
+    ((mouse.x * 0.8) - camera.position.x) * 0.03;
+
+    camera.position.y +=
+
+    (((mouse.y * 0.4)+2) - camera.position.y) * 0.03;
+
+    camera.lookAt(
+
+        world.position
+
+    );
+
+}
+
+/*=========================================
+    RESIZE
+=========================================*/
+
+window.addEventListener("resize",()=>{
+
+    camera.aspect =
+
+    window.innerWidth /
+
+    window.innerHeight;
+
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(
+
+        window.innerWidth,
+
+        window.innerHeight
+
+    );
+
+});
+
+/*=========================================
+    TEMP OBJECT
+=========================================*/
+
+const geometry =
+
+new THREE.TorusKnotGeometry(
+
+1,
+
+0.28,
+
+220,
+
+32
+
+);
+
+const material =
+
+new THREE.MeshStandardMaterial({
+
+    color:0x00d9ff,
+
+    metalness:1,
+
+    roughness:0.18,
+
+    emissive:0x0088ff,
+
+    emissiveIntensity:1
+
+});
+
+const core =
+
+new THREE.Mesh(
+
+geometry,
+
+material
+
+);
+
+core.castShadow = true;
+
+world.add(core);
+
+/*=========================================
+    ANIMATION
+=========================================*/
+
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    const t = clock.getElapsedTime();
+
+    core.rotation.x = t * 0.3;
+    core.rotation.y = t * 0.8;
+    updateCamera();
+    animateLights(t);
+
+    animateGround(t);
+
+    animateFloor(t);
+
+    animateEnvironment(t);
+
+
+
+    
+    renderer.render(scene, camera);
+}
+animate();
+
+
+
+
+
+/*=========================================================
+    PART 3A-2A
+    ENVIRONMENT LIGHTS + FOG
+=========================================================*/
+
+/*=========================================
+    FOG
+=========================================*/
+
+scene.fog = new THREE.FogExp2(
+    0x020611,
+    0.035
+);
+
+/*=========================================
+    AMBIENT LIGHT
+=========================================*/
+
+const ambientLight = new THREE.AmbientLight(
+    0x66ddff,
+    1.4
+);
+
+scene.add(ambientLight);
+
+/*=========================================
+    HEMISPHERE LIGHT
+=========================================*/
+
+const hemiLight = new THREE.HemisphereLight(
+    0x66ffff,
+    0x001122,
+    1.5
+);
+
+hemiLight.position.set(0, 50, 0);
+
+scene.add(hemiLight);
+
+/*=========================================
+    MAIN DIRECTIONAL LIGHT
+=========================================*/
+
+const sunLight = new THREE.DirectionalLight(
+    0xffffff,
+    2.5
+);
+
+sunLight.position.set(12, 18, 10);
+
+sunLight.castShadow = true;
+
+sunLight.shadow.mapSize.width = 2048;
+sunLight.shadow.mapSize.height = 2048;
+
+sunLight.shadow.camera.near = 0.5;
+sunLight.shadow.camera.far = 80;
+
+sunLight.shadow.camera.left = -20;
+sunLight.shadow.camera.right = 20;
+sunLight.shadow.camera.top = 20;
+sunLight.shadow.camera.bottom = -20;
+
+sunLight.shadow.bias = -0.0001;
+
+scene.add(sunLight);
+
+/*=========================================
+    LEFT GLOW LIGHT
+=========================================*/
+
+const leftGlow = new THREE.PointLight(
+    0x0099ff,
+    12,
+    40
+);
+
+leftGlow.position.set(
+    -8,
+    5,
+    3
+);
+
+scene.add(leftGlow);
+
+/*=========================================
+    RIGHT GLOW LIGHT
+=========================================*/
+
+const rightGlow = new THREE.PointLight(
+    0x00ffff,
+    12,
+    40
+);
+
+rightGlow.position.set(
+    8,
+    5,
+    3
+);
+
+scene.add(rightGlow);
+
+/*=========================================
+    BACK LIGHT
+=========================================*/
+
+const backLight = new THREE.PointLight(
+    0x0066ff,
+    15,
+    70
+);
+
+backLight.position.set(
+    0,
+    8,
+    -12
+);
+
+scene.add(backLight);
+
+/*=========================================
+    SPOT LIGHT
+=========================================*/
+
+const spotLight = new THREE.SpotLight(
+    0x66ffff,
+    35
+);
+
+spotLight.position.set(
+    0,
+    18,
+    8
+);
+
+spotLight.angle = Math.PI / 6;
+spotLight.penumbra = 0.5;
+spotLight.decay = 2;
+spotLight.distance = 80;
+
+spotLight.castShadow = true;
+
+spotLight.shadow.mapSize.width = 1024;
+spotLight.shadow.mapSize.height = 1024;
+
+scene.add(spotLight);
+
+spotLight.target = world;
+scene.add(spotLight.target);
+
+/*=========================================
+    LIGHT HELPER (OPTIONAL)
+    Uncomment while debugging
+=========================================*/
+
+// const helper = new THREE.DirectionalLightHelper(
+//     sunLight,
+//     2
+// );
+
+// scene.add(helper);
+
+/*=========================================
+    LIGHT ANIMATION
+=========================================*/
+
+function animateLights(time){
+
+    const t = time * 0.001;
+
+    pointBlue.intensity =
+        28 + Math.sin(t * 3) * 3;
+
+    leftGlow.intensity =
+        10 + Math.sin(t * 2.2) * 2;
+
+    rightGlow.intensity =
+        10 + Math.cos(t * 2.5) * 2;
+
+    backLight.intensity =
+        14 + Math.sin(t * 1.8) * 3;
+
+}
+/*=========================================================
+    PART 3A-2B-1
+    REFLECTIVE FLOOR + CYBER GRID FLOOR
+=========================================================*/
+
+/*=========================================
+    FLOOR GROUP
+=========================================*/
+
+const floorGroup = new THREE.Group();
+scene.add(floorGroup);
+
+/*=========================================
+    MAIN FLOOR
+=========================================*/
+
+const floorGeometry = new THREE.CircleGeometry(40, 128);
+
+const floorMaterial = new THREE.MeshStandardMaterial({
+
+    color:0x07111f,
+
+    metalness:0.9,
+
+    roughness:0.18,
+
+    transparent:true,
+
+    opacity:0.98
+
+});
+
+const floor = new THREE.Mesh(
+    floorGeometry,
+    floorMaterial
+);
+
+floor.rotation.x = -Math.PI / 2;
+
+floor.receiveShadow = true;
+
+floor.position.y = -1;
+
+floorGroup.add(floor);
+
+/*=========================================
+    CYBER GRID
+=========================================*/
+
+const grid = new THREE.GridHelper(
+
+    80,
+    80,
+    0x00ffff,
+    0x004466
+
+);
+
+grid.position.y = -0.98;
+
+grid.material.transparent = true;
+grid.material.opacity = 0.45;
+
+floorGroup.add(grid);
+
+/*=========================================
+    INNER RING
+=========================================*/
+
+const ringGeometry =
+new THREE.RingGeometry(
+    3.5,
+    4,
+    128
+);
+
+const ringMaterial =
+new THREE.MeshBasicMaterial({
+
+    color:0x00ffff,
+
+    side:THREE.DoubleSide,
+
+    transparent:true,
+
+    opacity:0.8
+
+});
+
+const ring =
+new THREE.Mesh(
+    ringGeometry,
+    ringMaterial
+);
+
+ring.rotation.x = -Math.PI / 2;
+ring.position.y = -0.95;
+
+floorGroup.add(ring);
+
+/*=========================================
+    OUTER RING
+=========================================*/
+
+const outerRing =
+new THREE.Mesh(
+
+    new THREE.RingGeometry(
+        8,
+        8.4,
+        180
+    ),
+
+    new THREE.MeshBasicMaterial({
+
+        color:0x0088ff,
+
+        side:THREE.DoubleSide,
+
+        transparent:true,
+
+        opacity:0.45
+
+    })
+
+);
+
+outerRing.rotation.x = -Math.PI / 2;
+outerRing.position.y = -0.94;
+
+floorGroup.add(outerRing);
+
+/*=========================================
+    FLOOR DISC
+=========================================*/
+
+const disc = new THREE.Mesh(
+
+    new THREE.CircleGeometry(
+        2.8,
+        80
+    ),
+
+    new THREE.MeshBasicMaterial({
+
+        color:0x00ffff,
+
+        transparent:true,
+
+        opacity:0.08
+
+    })
+
+);
+
+disc.rotation.x = -Math.PI / 2;
+
+disc.position.y = -0.93;
+
+floorGroup.add(disc);
+
+/*=========================================
+    FLOOR ANIMATION
+=========================================*/
+
+function animateFloor(time){
+
+    const t = time * 0.001;
+
+    ring.rotation.z += 0.003;
+
+    outerRing.rotation.z -= 0.0015;
+
+    ring.material.opacity =
+        0.65 + Math.sin(t * 2.5) * 0.18;
+
+    outerRing.material.opacity =
+        0.35 + Math.cos(t * 2.2) * 0.12;
+
+    disc.material.opacity =
+        0.05 + Math.sin(t * 3) * 0.03;
+
+    grid.material.opacity =
+        0.35 + Math.sin(t) * 0.08;
+
+}
+/*=========================================================
+    PART 3A-2B-2A
+    GROUND GLOW + ENERGY PLANE
+=========================================================*/
+
+/*=========================================
+    GROUND GLOW
+=========================================*/
+
+const glowTexture = createGlowTexture();
+
+const glowMaterial = new THREE.SpriteMaterial({
+    map: glowTexture,
+    color: 0x00d9ff,
+    transparent: true,
+    opacity: 0.8,
+    depthWrite: false
+});
+
+const groundGlow = new THREE.Sprite(glowMaterial);
+
+groundGlow.scale.set(18, 18, 1);
+groundGlow.position.set(0, -0.92, 0);
+
+scene.add(groundGlow);
+
+/*=========================================
+    ENERGY PLANE
+=========================================*/
+
+const energyGeometry = new THREE.CircleGeometry(7, 128);
+
+const energyMaterial = new THREE.MeshBasicMaterial({
+
+    color:0x00ffff,
+
+    transparent:true,
+
+    opacity:0.12,
+
+    side:THREE.DoubleSide,
+
+    blending:THREE.AdditiveBlending
+
+});
+
+const energyPlane = new THREE.Mesh(
+    energyGeometry,
+    energyMaterial
+);
+
+energyPlane.rotation.x = -Math.PI / 2;
+energyPlane.position.y = -0.91;
+
+scene.add(energyPlane);
+
+/*=========================================
+    SECOND ENERGY RING
+=========================================*/
+
+const energyRing = new THREE.Mesh(
+
+    new THREE.RingGeometry(6.8,7.1,128),
+
+    new THREE.MeshBasicMaterial({
+
+        color:0x00ffff,
+
+        transparent:true,
+
+        opacity:0.35,
+
+        side:THREE.DoubleSide
+
+    })
+
+);
+
+energyRing.rotation.x = -Math.PI/2;
+energyRing.position.y = -0.905;
+
+scene.add(energyRing);
+
+/*=========================================
+    CREATE GLOW TEXTURE
+=========================================*/
+
+function createGlowTexture(){
+
+    const canvas = document.createElement("canvas");
+
+    canvas.width = 256;
+    canvas.height = 256;
+
+    const ctx = canvas.getContext("2d");
+
+    const gradient = ctx.createRadialGradient(
+
+        128,128,5,
+
+        128,128,120
+
+    );
+
+    gradient.addColorStop(0,"rgba(255,255,255,1)");
+    gradient.addColorStop(0.2,"rgba(0,255,255,.9)");
+    gradient.addColorStop(0.5,"rgba(0,180,255,.35)");
+    gradient.addColorStop(1,"rgba(0,0,0,0)");
+
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(0,0,256,256);
+
+    return new THREE.CanvasTexture(canvas);
+
+}
+
+/*=========================================
+    GROUND ANIMATION
+=========================================*/
+
+function animateGround(time){
+
+    const t = time * 0.001;
+
+    groundGlow.material.opacity =
+        0.55 + Math.sin(t*2)*0.2;
+
+    groundGlow.scale.setScalar(
+        17 + Math.sin(t*2.2)*1.2
+    );
+
+    energyPlane.rotation.z += 0.0015;
+
+    energyPlane.material.opacity =
+        0.10 + Math.sin(t*3)*0.03;
+
+    energyRing.rotation.z -= 0.002;
+
+    energyRing.material.opacity =
+        0.25 + Math.cos(t*2)*0.08;
+
+}
+/*=========================================================
+    PART 3A-2B-2B
+    HOLOGRAM FLOOR + ENVIRONMENT ANIMATION
+=========================================================*/
+
+/*=========================================
+    HOLOGRAM CYLINDER
+=========================================*/
+
+const holoGeometry = new THREE.CylinderGeometry(
+    2.2,
+    2.2,
+    4,
+    64,
+    1,
+    true
+);
+
+const holoMaterial = new THREE.MeshBasicMaterial({
+
+    color:0x00ffff,
+
+    transparent:true,
+
+    opacity:0.08,
+
+    side:THREE.DoubleSide,
+
+    blending:THREE.AdditiveBlending,
+
+    depthWrite:false
+
+});
+
+const hologramBeam = new THREE.Mesh(
+    holoGeometry,
+    holoMaterial
+);
+
+hologramBeam.position.set(0,1,-0.02);
+
+scene.add(hologramBeam);
+
+/*=========================================
+    CYBER RINGS
+=========================================*/
+
+const rings=[];
+
+for(let i=0;i<6;i++){
+
+    const ring=new THREE.Mesh(
+
+        new THREE.TorusGeometry(
+            2.1+(i*0.22),
+            0.015,
+            16,
+            120
+        ),
+
+        new THREE.MeshBasicMaterial({
+
+            color:0x00ffff,
+
+            transparent:true,
+
+            opacity:0.5,
+
+            blending:THREE.AdditiveBlending
+
+        })
+
+    );
+
+    ring.rotation.x=Math.PI/2;
+
+    ring.position.y=.05+(i*.35);
+
+    scene.add(ring);
+
+    rings.push(ring);
+
+}
+
+/*=========================================
+    FLOATING LIGHT ORBS
+=========================================*/
+
+const orbs=[];
+
+const orbGeo=new THREE.SphereGeometry(.05,16,16);
+
+for(let i=0;i<40;i++){
+
+    const orb=new THREE.Mesh(
+
+        orbGeo,
+
+        new THREE.MeshBasicMaterial({
+
+            color:0x66ffff
+
+        })
+
+    );
+
+    resetOrb(orb);
+
+    scene.add(orb);
+
+    orbs.push(orb);
+
+}
+
+function resetOrb(orb){
+
+    orb.position.set(
+
+        (Math.random()-0.5)*2.5,
+
+        Math.random()*4,
+
+        (Math.random()-0.5)*2.5
+
+    );
+
+    orb.userData.speed=
+    .01+Math.random()*0.02;
+
+}
+
+/*=========================================
+    ENVIRONMENT ANIMATION
+=========================================*/
+
+function animateEnvironment(time){
+
+    const t=time*.001;
+
+    hologramBeam.material.opacity=
+
+    .06+
+
+    Math.sin(t*3)*.03;
+
+    hologramBeam.scale.y=
+
+    1+
+
+    Math.sin(t*2)*.08;
+
+    hologramBeam.rotation.y+=0.003;
+
+    rings.forEach((ring,index)=>{
+
+        ring.rotation.z+=0.002+(index*.0008);
+
+        ring.material.opacity=
+
+        .25+
+
+        Math.sin(
+
+            t*3+index
+
+        )*.15;
+
+    });
+
+    orbs.forEach(orb=>{
+
+        orb.position.y+=orb.userData.speed;
+
+        if(orb.position.y>4.2){
+
+            resetOrb(orb);
+
+            orb.position.y=0;
+
+        }
+
+    });
+
+}
+/*=========================================================
+    PART 3A-3
+    CAMERA ANIMATION + CURSOR FOLLOW + SPAWN POINTS
+=========================================================*/
+
+/*=========================================
+    CAMERA TARGET
+=========================================*/
+
+const cameraTarget = new THREE.Vector3(0,1,0);
+
+
+
+/*=========================================
+    INTRO CAMERA
+=========================================*/
+
+camera.position.set(0,5,18);
+
+function introCamera(time){
+
+    const t = time * 0.001;
+
+    camera.position.z -= 0.02;
+
+    camera.position.x = Math.sin(t * 0.4) * 0.8;
+
+    camera.position.y = 4 + Math.sin(t) * 0.2;
+
+    if(camera.position.z <= 8){
+
+        camera.position.z = 8;
+
+        cameraMode = "follow";
+
+    }
+
+}
+
+/*=========================================
+    CURSOR FOLLOW
+=========================================*/
+
+function followCamera(){
+
+    const targetX = mouse.x * 1.5;
+
+    const targetY = 2 + mouse.y * 0.8;
+
+    camera.position.x +=
+
+        (targetX - camera.position.x) * 0.05;
+
+    camera.position.y +=
+
+        (targetY - camera.position.y) * 0.05;
+
+}
+
+/*=========================================
+    LOOK AT
+=========================================*/
+
+function updateLookAt(){
+
+    camera.lookAt(cameraTarget);
+
+}
+document.addEventListener("DOMContentLoaded", () => {
+
+    const filterButtons = document.querySelectorAll(".project-filter button");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+
+            // Active button
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const filter = button.dataset.filter;
+
+            projectCards.forEach(card => {
+
+                if (filter === "all") {
+                    card.style.display = "block";
+                } else if (card.dataset.category === filter) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+
+            });
+
+        });
+    });
+
+});
+
+
+
 
