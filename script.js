@@ -1,10 +1,5 @@
 "use strict";
 
-/* =========================================================
-   PORTFOLIO WEBSITE — FIXED & OPTIMIZED SCRIPT
-   (Services-section visibility bug patched — see comments
-   marked "FIX:" below. All other logic is unchanged.)
-========================================================= */
 
 /* =========================================================
    SHARED / CACHED ELEMENTS
@@ -15,6 +10,8 @@ const menuBtn     = document.querySelector(".menu-btn");
 const navbar      = document.querySelector(".navbar");
 const navLinks    = document.querySelectorAll(".navbar a");
 const sections    = document.querySelectorAll("section");
+const percent = document.getElementById("percent");
+const progressBar = document.getElementById("progress-bar");
 
 const typingElement = document.querySelector(".typing");
 const homeTyping     = document.querySelector(".typing-home");
@@ -145,7 +142,39 @@ function initAboutTyping(){
     }
     typeHome();
 }
+/*=========================================================
+    LOADER
+=========================================================*/
 
+
+
+const progressFill = document.querySelector(".progress-fill");
+
+const progressText = document.getElementById("progress-text");
+
+let progress = 0;
+
+const loading = setInterval(() => {
+
+    progress++;
+
+    progressFill.style.width = progress + "%";
+
+    progressText.textContent = progress + "%";
+
+    if(progress >= 100){
+
+        clearInterval(loading);
+
+        setTimeout(() => {
+
+            loader.classList.add("loader-hide");
+
+        },500);
+
+    }
+
+},20);
 /* =========================================================
    CUSTOM CURSOR
 ========================================================= */
