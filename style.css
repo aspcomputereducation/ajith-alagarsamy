@@ -1,4 +1,5 @@
 
+
 /* ===========================
    GOOGLE FONT
 =========================== */
@@ -107,8 +108,88 @@ section{
 /* ===========================
    TITLE
 =========================== */
+.facebook-icon{
+    color: #1877F2;   /* Official Facebook Blue */
+    font-size: 28px;
+    transition: 0.3s ease;
+}
 
+.facebook-icon:hover{
+    color: #145dbf;
+    transform: scale(1.15);
+}
+.instagram-icon{
+    font-size: 28px;
+    background: radial-gradient(circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285AEB 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.github-icon{
+    color: #181717;   /* Official GitHub Black */
+    font-size: 28px;
+    transition: 0.3s ease;
+}
 
+.github-icon:hover{
+    color: #333333;
+    transform: scale(1.15);
+}
+.linkedin-icon{
+    color: #0A66C2;   /* Official LinkedIn Blue */
+    font-size: 28px;
+    transition: 0.3s ease;
+}
+
+.linkedin-icon:hover{
+    color: #004182;
+    transform: scale(1.15);
+}
+.x-icon{
+    color: #000000;   /* Official X Black */
+    font-size: 28px;
+    transition: 0.3s ease;
+}
+
+.x-icon:hover{
+    color: #444444;
+    transform: scale(1.15);
+}
+.youtube-icon{
+    color: #FF0000;   /* Official YouTube Red */
+    font-size: 28px;
+    transition: 0.3s ease;
+}
+
+.youtube-icon:hover{
+    color: #CC0000;
+    transform: scale(1.15);
+}
+.whatsapp-icon{
+    color: #25D366;   /* Official WhatsApp Green */
+    font-size: 28px;
+    transition: 0.3s ease;
+}
+
+.whatsapp-icon:hover{
+    color: #128C7E;
+    transform: scale(1.15);
+}
+.behance-icon{
+    color: #1769FF;      /* Official Behance Blue */
+    font-size: 28px;
+    
+}
+
+.behance-icon:hover{
+    color: #0057FF;
+    transform: scale(1.15);
+}
 
 /* =====================================================
    HEADER
@@ -164,7 +245,10 @@ section{
 
 .navbar a{
 
-    font-weight:500;
+    font-weight:bold;
+    font-size:18px;
+    color:var(--primary);
+    
 
     transition:var(--transition);
 
@@ -174,7 +258,7 @@ section{
 
 .navbar a.active{
 
-    color:var(--primary);
+    color: #000000;
 
 }
 
@@ -623,8 +707,8 @@ body{
     height:45px;
     margin:0 8px;
     border-radius:50%;
-    background:rgba(255,255,255,0.05);
-    color:#000000;
+    background:rgba(255, 255, 255, 0.226);
+    border:0.5px solid #00000052;
     font-size:18px;
     transition:all 0.3s ease;
     position:relative;
@@ -645,6 +729,7 @@ body{
 .social-icons a:hover i{
     animation:bounce 0.6s ease;
 }
+
 
 @keyframes bounce{
     0%   { transform:translateY(0); }
@@ -967,7 +1052,9 @@ body{
 .social-icons a:nth-child(7){
     animation-delay:3.0s;
 }
-
+.social-icons a:nth-child(8){
+    animation-delay:3.3s;
+}
 
 
 /* Animation */
@@ -1699,12 +1786,15 @@ strong {
 ===========================*/
 
 .about,
-.skills{
+.skills,.experience,
+.education{
     position:relative;
 }
 
 .about::before,
-.skills::before{
+.skills::before,
+.experience::before,
+.education::before{
 
     content:"";
 
@@ -1825,6 +1915,7 @@ strong {
     box-shadow:0 18px 40px rgba(0,0,0,.15);
 }
 
+
 .timeline-content .year{
     display:inline-block;
     background:var(--primary);
@@ -1867,6 +1958,9 @@ strong {
 
 .timeline-item:nth-child(3){
     animation-delay:.4s;
+}
+.timeline-item{
+    animation: fadeUp .2s ease both;
 }
 
 /* ===========================
@@ -4371,6 +4465,7 @@ strong {
     display:flex;
     gap:15px;
     flex-wrap:wrap;
+    
 }
 
 .footer-social .social-links a{
@@ -4384,7 +4479,7 @@ strong {
 
     border-radius:50%;
 
-    background:#1f2937;
+    background:#fbfdff;
 
     color:#ffffff;
 
